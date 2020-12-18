@@ -5,35 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Window Coordinates</title>
     <style>
-      :root {
+      body {
         background-color: black;
       }
-      .sqr {
-        width: 500px;
-        height: 500px;
-        border: 3px pink solid;
-        background-color: beige;
+      div {
+        width: 250px;
+        height: 250px;
+        background-color: blanchedalmond;
+        margin-bottom: 4px;
+        border-radius: 4px;
       }
-      #sqr--orange {
-        background-color: orangered;
+      .special {
+        background-color: lightsalmon;
       }
     </style>
   </head>
   <body>
-    <div class="sqr"></div>
-    <div class="sqr"></div>
-    <div class="sqr"></div>
-    <div class="sqr"></div>
-    <div class="sqr"></div>
-    <div class="sqr"></div>
-    <div class="sqr" id="sqr--orange"></div>
-    <div class="sqr"></div>
-    <div class="sqr"></div>
-    <div class="sqr"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="special"></div>
+    <div></div>
+    <div></div>
+    <div></div>
     <script>
-      let orangeSqr = document.querySelector("#sqr--orange");
-      orangeSqr.addEventListener("click", (event) => {
-        console.log(orangeSqr.getClientRects()[0]);
+      const special = document.querySelector(".special");
+      special.addEventListener("click", (event) => {
+        const rect = special.getBoundingClientRect();
+        console.log(rect);
         console.log(`client: ${event.clientX}, ${event.clientY}`);
         console.log(`page: ${event.pageX}, ${event.pageY}`);
       });
