@@ -1,0 +1,76 @@
+*{
+    --list-width: 400px;
+    --list--height:600px;
+    --radius : 16px;
+    --label-height : 48px;
+}
+
+body{
+    background-color:#c8cddb;
+}
+
+.list{
+    background-color: white;
+    border-radius: var(--radius);
+    width: var(--list-width);
+    height: var(--list--height)
+}
+
+.list--header, .list--footer{
+    background-image: linear-gradient(150deg, #fbc2eb 0%, #a6c1ee 100%);
+    height: var(--label-height);
+    line-height: var(--label-height);
+    text-align: center;
+    color: white;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.list--header{
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    font-size: 24px;
+}
+.list--footer{
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    font-size: 24px;
+}
+
+.list--items{
+    background-color: #f0eef6;
+    height: 480px;
+}
+
+[class^="items--item"]{
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 20px;
+}
+
+[class^="items--item__btn"]{
+    outline: none;
+    border: none;
+}
+
+.list--input{
+    width: var(--list-width);
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    height: 24px;
+    outline: none;
+    font-size: 24px;
+
+}
+
+.list--footer__btn{
+    border: 0;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    background-color: black;
+    height: 48px;
+    width: 48px;
+    outline: none;
+}
+
