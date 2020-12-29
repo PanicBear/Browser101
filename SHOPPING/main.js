@@ -32,9 +32,6 @@ function onAdd() {
         const deleteBtn = document.createElement('button');
         deleteBtn.setAttribute('class', 'item__delete');
         deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-        deleteBtn.addEventListener('click', () => {
-            items.removeChild(itemRow);
-        })
 
         const itemDivider = document.createElement('div');
         itemDivider.setAttribute('class', 'item__divider');
@@ -63,9 +60,9 @@ input.addEventListener('keypress', (e) => {
 items.addEventListener('click', (e) => {
     switch (e.target.tagName) {
         case "BUTTON":
-            console.log(e.target.parentNode);
+            e.target.parentNode.parentNode.remove();
             return;
         case "I":
-            console.log(e.target.parentNode.parentNode);
+            e.target.parentNode.parentNode.parentNode.remove();
     }
 });
