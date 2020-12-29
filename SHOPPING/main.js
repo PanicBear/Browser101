@@ -2,46 +2,35 @@ const items = document.querySelector('.items');
 const input = document.querySelector('.footer__input');
 const addBtn = document.querySelector('.footer__button');
 
+let id = 0; // 원래는 UUID 라이브러리나 오브젝트 내장 해시코드 써야
+
 function onAdd() {
-    // 1. 사용자가 입력한 텍스트를 받아온다
     const text = input.value;
     if (text === '') {
         input.focus();
         return;
     }
-    // 2. 새로운 아이템을 만든다 (텍스트 + 삭제버튼)
     const item = createItem(text);
-    // 3. items 컨테이너 안에 새로 만든 아이템을 추가한다
     items.appendChild(item);
     item.scrollIntoView({ block: 'center' });
-    // 4. 인풋을 초기화한다
+    
     input.value = "";
     input.focus();
 
     function createItem(text) {
         const itemRow = document.createElement('li');
         itemRow.setAttribute('class', 'item__row');
-
-        const item = document.createElement('div');
-        item.setAttribute('class', 'item');
-
-        const name = document.createElement('span');
-        name.setAttribute('class', 'item__name');
-        name.innerText = text;
-
-        const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute('class', 'item__delete');
-        deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-
-        const itemDivider = document.createElement('div');
-        itemDivider.setAttribute('class', 'item__divider');
-
-        item.appendChild(name);
-        item.appendChild(deleteBtn);
-
-        itemRow.appendChild(item);
-        itemRow.appendChild(itemDivider);
-
+        itemRow.setAttribute('data-id', id);
+        itemRow.innerHTML =
+        `
+          <div class="item">
+            <span class="item__name">${text}</span>
+            <button class="item__delete" data-id=${id++}>
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+          <div class="item__divider"></div>
+        `;
         return itemRow;
     }
 };
@@ -57,12 +46,14 @@ input.addEventListener('keypress', (e) => {
     }
 });
 
+// 데이터 구조나 ui 구성의 변경에 따라 작동하지 않는 코드이기 때문에
+// id(혹은 UUID 라이브러리)를 사용하여 변경해야
 items.addEventListener('click', (e) => {
-    switch (e.target.tagName) {
-        case "BUTTON":
-            e.target.parentNode.parentNode.remove();
-            return;
-        case "I":
-            e.target.parentNode.parentNode.parentNode.remove();
+    if (e.target.className == "item__delete" || e.target.parentNode.className == "item__delete") {
+        console.log("clicked one is " + e.target.tagName);
+        let id = e.target.className == "item__delete" ? e.target.dataset.id : e.target.parentNode.dataset.id;
+        document.querySelector(`.item__row[data-id="${id}"]`).remove();
+        return;
     }
+    console.log("clicked one is not a button or img");
 });
