@@ -59,3 +59,13 @@ input.addEventListener('keypress', (e) => {
         onAdd();
     }
 });
+
+items.addEventListener('click', (e) => {
+    switch (e.target.tagName) {
+        case "BUTTON":
+            console.log(e.target.parentNode);
+            return;
+        case "I":
+            console.log(e.target.parentNode.parentNode);
+    }
+});
