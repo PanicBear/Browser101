@@ -1,3 +1,11 @@
+*{
+    --button-height : 64px;
+    --button-width : 64px;
+    --ui-border : 3px solid black;
+    --ui-border-radius : 8px;
+    --ui-font-failly: 'PT Serif', serif;
+}
+
 body{
     padding: 0;
     margin: 0;
@@ -9,12 +17,12 @@ body{
     z-index: 0;
 }
 
+
 .field{
     position: absolute;
     width: 100%;
-    height: 50%;
-    transform: translateY(100%);
-    background-color: green;
+    height: 40%;
+    transform: translateY(150%);
     z-index: 1;
 }
 
@@ -33,3 +41,81 @@ body{
     width: 50px;
     z-index: 3;
 }
+
+i.fas{
+    font-size: 48px;
+    line-height: var(--button-height) ; 
+}
+
+.btn{
+    background-color: bisque;
+    width: var(--button-width);
+    height: var(--button-height);
+    border: 3px  solid black;
+    border-radius: var(--ui-border-radius);
+    text-align: center;
+    margin: auto;
+}
+
+.ui{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    box-sizing: border-box;
+    text-align: center;
+    padding:96px;
+    transform: translateX(50%);
+    z-index: 4;
+}
+
+.ui--time{
+    width: calc(var(--button-width)*2);
+    height: calc(var(--button-height)/3*2);
+    background-color: white;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 16px;
+    border: var(--ui-border);
+    border-radius: var(--ui-border-radius);
+    text-align: center;
+    font-family: var(--ui-font-failly);
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.ui--cnt{
+    background-color: orangered;
+    color: white;
+    width: var(--button-width);
+    height: var(--button-height);
+    border: var(--ui-border);
+    margin: auto;
+    margin-top : 16px;
+    border-radius: 50%;
+    text-align: center;
+    font-family: var(--ui-font-failly);
+    font-size: 48px;
+    line-height: var(--button-height);
+}
+
+.msg{
+    position: absolute;
+    width: 25%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 16px;
+    border-radius:16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateX(150%);
+    text-align: center;
+    z-index: 4;
+}
+
+.msg__text{
+    color: white;
+    font-family: 'PT Serif', serif;
+    font-size: 48px;
+    margin-top: 8px;
+}
+
+
