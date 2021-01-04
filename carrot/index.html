@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fun Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/6824aae33f.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
     <script src="main.js" defer></script>
-</head>
-
-<body>
-    <div class="ui">
-        <div class="ui--btn btn" data-status="play">
-            <i class="fas fa-play"></i>
-        </div>
-        <div class="ui--time">0:0</div>
-        <div class="ui--cnt">0</div>
-    </div>
-    <section class="field">
-        <!-- <div class="msg">
-            <div class="msg__btn-replay btn">
-                <i class="fas fa-redo-alt"></i>
-            </div>
-            <div class="msg__text">
-                YOU WON!
-            </div>
-        </div> -->
+  </head>
+  <body>
+    <section class="game">
+      <header class="game__header">
+        <button class="game__button">
+          <i class="fas fa-play"></i>
+        </button>
+        <span class="game__timer">0:0</span>
+        <span class="game__score">9</span>
+      </header>
+      <section class="game__field"></section>
     </section>
-</body>
-
+    <section class="pop-up pop-up--hide">
+      <button class="pop-up__refresh">
+        <i class="fas fa-redo"></i>
+      </button>
+      <span class="pop-up__message">Hello</span>
+    </section>
+  </body>
 </html>
