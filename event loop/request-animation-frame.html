@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>RequestAnimationFrame</button>
+    <script>
+      // 리퀘스트 애니메이션 큐 또한 FIFO이기 때문에 동일요소가 있다면 마지막 요소만 적용
+      const button = document.querySelector("button");
+      button.addEventListener("click", () => {
+        requestAnimationFrame(() => {
+          document.body.style.backgroundColor = "beige";
+        });
+        requestAnimationFrame(() => {
+          document.body.style.backgroundColor = "orange";
+        });
+        requestAnimationFrame(() => {
+          document.body.style.backgroundColor = "red";
+        });
+      });
+    </script>
+  </body>
+</html>

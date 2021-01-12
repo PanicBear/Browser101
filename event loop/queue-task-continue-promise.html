@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Continue with promise</button>
+    <script>
+      // 실행중 마이크로태스크 큐에 추가되기에 이벤트 루프 진행X
+      function handleClick() {
+        console.log("hadnleClick");
+        Promise.resolve(0).then(() => {
+          console.log("then");
+          handleClick();
+        });
+      }
+
+      const button = document.querySelector("button");
+      button.addEventListener("click", handleClick);
+    </script>
+  </body>
+</html>

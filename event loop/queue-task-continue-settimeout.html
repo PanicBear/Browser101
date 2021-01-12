@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Continue with setTimeout</button>
+    <script>
+      // 태스크 큐에 넘어가기에 이벤트 루프 정상 진행
+      function handleClick() {
+        console.log("hadnleClick");
+        setTimeout(() => {
+          console.log("setTimeout");
+          handleClick();
+        }, 0);
+      }
+      const button = document.querySelector("button");
+      button.addEventListener("click", handleClick);
+    </script>
+  </body>
+</html>
